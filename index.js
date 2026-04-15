@@ -1,5 +1,7 @@
 async function loadData() {
-  let data = await fetch("./info.json");
+  let data = await fetch(
+    "https://raw.githubusercontent.com/Psyko38/Cao/refs/heads/main/info.json",
+  );
   data = await data.json();
   return data;
 }
@@ -11,7 +13,9 @@ async function main() {
   for (let i = 0; i < data.length; i++) {
     const element = data[i];
     console.log(element);
-    container.appendChild(createElement(element.name, element.info, element.url));
+    container.appendChild(
+      createElement(element.name, element.info, element.url),
+    );
   }
 }
 
